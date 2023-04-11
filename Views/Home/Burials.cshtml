@@ -12,64 +12,30 @@
     <table class="table table-striped text-center">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <td>Squarenorthsouth</td>
-                <td>Headdirection</td>
-                <td>Sex</td>
-                <td>Northsouth</td>
-                <td>Depth</td>
-                <td>Eastwest</td>
-                <td>Adultsubadult</td>
-                <td>Facebundles</td>
-                <td>Southtohead</td>
-                <td>Preservation</td>
-                <td>Fieldbookpage</td>
-                <td>Squareeastwest</td>
-                <td>Goods</td>
-                <td>Wrapping</td>
-                <td>Haircolor</td>
-                <td>Westtohead</td>
-                <td>Samplescollected</td>
-                <td>Area</td>
-                <td>Length</td>
-                <td>Burialnumber</td>
-                <td>Dataexpertinitials</td>
-                <td>Westtofeet</td>
-                <td>Ageatdeath</td>
-                <td>Southtofeet</td>
-                <td>Clusternumber</td>
+                <th scope="col">Burial Location</td>
+                <th scope="col">Depth</td>
+                <th scope="col">Length</td>
+                <th scope="col">Head Direction</td>
+                <th scope="col">Preservation</td>
+                <th scope="col">Wrapping</td>
+                <th scope="col">Sex</th>
+                <th scope="col">Age at Death</th>
+                <th scope="col">Hair Color</td>
             </tr>
         </thead>
         <tbody>
             @foreach (var b in Model)
             {
-                <tr>
-                    <th scope="row">@b.Id</th>
-                    <td>@b.Squarenorthsouth</td>
-                    <td>@b.Headdirection</td>
-                    <td>@b.Sex</td>
-                    <td>@b.Northsouth</td>
-                    <td>@b.Depth</td>
-                    <td>@b.Eastwest</td>
-                    <td>@b.Adultsubadult</td>
-                    <td>@b.Facebundles</td>
-                    <td>@b.Southtohead</td>
-                    <td>@b.Preservation</td>
-                    <td>@b.Fieldbookpage</td>
-                    <td>@b.Squareeastwest</td>
-                    <td>@b.Goods</td>
-                    <td>@b.Wrapping</td>
-                    <td>@b.Haircolor</td>
-                    <td>@b.Westtohead</td>
-                    <td>@b.Samplescollected</td>
-                    <td>@b.Area</td>
-                    <td>@b.Length</td>
-                    <td>@b.Burialnumber</td>
-                    <td>@b.Dataexpertinitials</td>
-                    <td>@b.Westtofeet</td>
-                    <td>@b.Ageatdeath</td>
-                    <td>@b.Southtofeet</td>
-                    <td>@b.Clusternumber</td>
+                <tr scope="row">
+					<td>@b.Squarenorthsouth @b.Northsouth @b.Squareeastwest @b.Eastwest @b.Area @b.Burialnumber</td>
+					<td>@b.Depth</td>
+					<td>@b.Length</td>
+					<td>@b.Headdirection</td>
+					<td>@b.Preservation</td>
+					<td>@b.Wrapping</td>
+					<td>@b.Sex</td>
+					<td>@b.Ageatdeath</td>
+					<td>@b.Haircolor</td>
                 </tr>
             }
         </tbody>
