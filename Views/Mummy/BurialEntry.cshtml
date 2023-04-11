@@ -5,7 +5,12 @@
 @model Egypt.Models.Burialmain
 
 <div>
-    <form method="post">
+    <form method="post" asp-action="BurialEntry">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <label asp-for="Id">ID:</label>
+        <input asp-for="Id" /><br />
+
         <label asp-for="Squarenorthsouth">Square North South:</label>
         <input asp-for="Squarenorthsouth" /><br />
 

@@ -49,17 +49,6 @@ namespace Egypt.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult BurialEntry()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult BurialEntry(Burialmain bm)
-        {
-            return View("ConfirmationOfAdd", bm);
-        }
-
         public IActionResult SupervisedAnalysis()
         {
             return View();

@@ -8,6 +8,14 @@
     <p>Information about the different burials</p>
 </div>
 
+<div>
+    <div>
+        <a class="buttons button1" asp-controller="Mummy" asp-action="BurialEntry">Create a new entry!</a>
+    </div>
+</div>
+
+
+
 <div class="custom-container">
     <table class="table table-striped text-center">
         <thead>
@@ -27,15 +35,15 @@
             @foreach (var b in Model)
             {
                 <tr scope="row">
-					<td>@b.Squarenorthsouth @b.Northsouth @b.Squareeastwest @b.Eastwest @b.Area @b.Burialnumber</td>
-					<td>@b.Depth</td>
-					<td>@b.Length</td>
-					<td>@b.Headdirection</td>
-					<td>@b.Preservation</td>
-					<td>@b.Wrapping</td>
-					<td>@b.Sex</td>
-					<td>@b.Ageatdeath</td>
-					<td>@b.Haircolor</td>
+                    <td>@b.Squarenorthsouth @b.Northsouth @b.Squareeastwest @b.Eastwest @b.Area @b.Burialnumber</td>
+                    <td>@b.Depth</td>
+                    <td>@b.Length</td>
+                    <td>@b.Headdirection</td>
+                    <td>@b.Preservation</td>
+                    <td>@b.Wrapping</td>
+                    <td>@b.Sex</td>
+                    <td>@b.Ageatdeath</td>
+                    <td>@b.Haircolor</td>
                 </tr>
             }
         </tbody>
