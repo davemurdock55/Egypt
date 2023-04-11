@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # The Database Info
 db.config
+appsettings.json
+secrets.json
