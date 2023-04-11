@@ -6,9 +6,15 @@
 
 @model Burialmain
 
+<style>
+    .table-custom {
+        background-color: white;
+    }
+</style>
+
 <!-- Modal -->
 <div class="modal fade" id="burialDetails-@Model.Id" tabindex="-1" role="dialog" aria-labelledby="burialDetailsLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" style="min-width: 1000px">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="burialDetailsLabel">Burial Details</h5>
@@ -17,150 +23,101 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h6>Burial for @Model.Squarenorthsouth @Model.Northsouth @Model.Squareeastwest @Model.Eastwest @Model.Area @Model.Burialnumber</h6>
-                    
-                <p>Location: @Model.Squarenorthsouth @Model.Northsouth @Model.Squareeastwest @Model.Eastwest @Model.Area @Model.Burialnumber</p>
+                <h5 class="pb-4">Burial for @Model.Squarenorthsouth @Model.Northsouth @Model.Squareeastwest @Model.Eastwest @Model.Area @Model.Burialnumber</h5>                    
 
-				@if (Model.Adultsubadult != null)
-				{
-					<p><b>Age Range:</b> @Model.Adultsubadult</p>
-				}
+                <div class="container">
 
-                @if (Model.Ageatdeath != null)
-                {
-                    <p><b>Age at Death:</b> @Model.Ageatdeath</p>
-                }
+                    <div class="row">
+                        <div class="col">
+                            <p>@Model.Text</p>
+                        </div>
+                    </div>
 
-                @if (Model.Burialid != null)
-                {
-                    <p><b>Burial Id:</b> @Model.Burialid</p>
-                }
-
-                @if (Model.Burialmaterials != null)
-                {
-                    <p><b>Burial Materials:</b> @Model.Burialmaterials</p>
-                }
-
-                @if (Model.Dataexpertinitials != null)
-                {
-                    <p><b>Expert Initials:</b> @Model.Dataexpertinitials</p>
-                }
-                
-                @if (Model.Clusternumber != null)
-                {
-                    <p><b>Cluster:</b> @Model.Clusternumber</p>
-                }
-
-                @if (Model.Dateofexcavation != null)
-                {
-                    <p><b>Date of Excavation:</b> @Model.Dateofexcavation</p>
-                }
-
-                @if (Model.Depth != null)
-                {
-                    <p><b>Depth:</b> @Model.Depth</p>
-                }
-
-                @if (Model.Excavationrecorder != null)
-                {
-                    <p><b>Excavation Reorder:</b> @Model.Excavationrecorder</p>
-                }
-
-                @if (Model.Facebundles != null)
-                {
-                    <p><b>Face Bundles:</b> @Model.Facebundles</p>
-                }
-
-                @if (Model.Fieldbookexcavationyear != null)
-                {
-                    <p><b>Fieldbook Excavation Year:</b> @Model.Fieldbookexcavationyear</p>
-                }
-
-                @if (Model.Fieldbookpage != null)
-                {
-                    <p><b>Fieldbook Page:</b> @Model.Fieldbookpage</p>
-                }
-
-                @if (Model.Goods != null)
-                {
-                    <p><b>Goods:</b> @Model.Goods</p>
-                }
-
-                @if (Model.Hair != null)
-                {
-                    <p><b>Hair:</b> @Model.Hair</p>
-                }
-
-                @if (Model.Headdirection != null)
-                {
-                    <p><b>Head Direction:</b> @Model.Headdirection</p>
-                }
-
-                @if (Model.Haircolor != null)
-                {
-                    <p><b>Hair Color:</b> @Model.Haircolor</p>
-                }
-
-                @if (Model.Length != null)
-                {
-                    <p><b>Length:</b> @Model.Length</p>
-                }
-
-                @if (Model.Photos != null)
-                {
-                    <p><b>Photos:</b> @Model.Photos</p>
-                }
-
-
-                @if (Model.Preservation != null)
-                {
-                    <p><b>Preservation:</b> @Model.Preservation</p>
-                }
-
-                @if (Model.Samplescollected != null)
-                {
-                    <p><b>Samples Collected:</b> @Model.Samplescollected</p>
-                }
-
-                @if (Model.Sex != null)
-                {
-                    <p><b>Sex:</b> @Model.Sex</p>
-                }
-
-                @if (Model.Shaftnumber != null)
-                {
-                    <p><b>Shaft Number:</b> @Model.Shaftnumber</p>
-                }
-
-                @if (Model.Southtofeet != null)
-                {
-                    <p><b>South to Feet:</b> @Model.Southtofeet</p>
-                }
-
-                @if (Model.Southtohead != null)
-                {
-                    <p><b>South to Head:</b> @Model.Southtohead</p>
-                }
-
-                @if (Model.Text != null)
-                {
-                    <p><b>Text:</b> @Model.Text</p>
-                }
-
-                @if (Model.Westtofeet != null)
-                {
-                    <p><b>West to Feet:</b> @Model.Westtofeet</p>
-                }
-
-                @if (Model.Westtohead != null)
-                {
-                    <p><b>West to Head:</b> @Model.Westtohead</p>
-                }
-
-                @if (Model.Wrapping != null)
-                {
-                    <p><b>Wrapping:</b> @Model.Wrapping</p>
-                }
+                    <table class="table table-light bg-light table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">Age Range</th>
+                                <th scope="col">Age at Death</th>
+                                <th scope="col">Burial Id</th>
+                                <th scope="col">Burial Materials</th>
+                                <th scope="col">Expert Initials</th>
+                                <th scope="col">Cluster</th>
+                                <th scope="col">Date of Excavation</th>
+                                <th scope="col">Depth</th>
+                                <th scope="col">Excavation Reorder</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Adultsubadult</td>
+                                <td>@Model.Ageatdeath</td>
+                                <td>@Model.Burialid</td>
+                                <td>@Model.Burialmaterials</td>
+                                <td>@Model.Dataexpertinitials</td>
+                                <td>@Model.Clusternumber</td>
+                                <td>@Model.Dateofexcavation</td>
+                                <td>@Model.Depth</td>
+                                <td>@Model.Excavationrecorder</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-light bg-light table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">Face Bundles</th>
+                                <th scope="col">Fieldbook Excavation Year</th>
+                                <th scope="col">Fieldbook Page</th>
+                                <th scope="col">Goods</th>
+                                <th scope="col">Hair</th>
+                                <th scope="col">Head Direction</th>
+                                <th scope="col">Hair Color</th>
+                                <th scope="col">Length</th>
+                                <th scope="col">Photos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Facebundles</td>
+                                <td>@Model.Fieldbookexcavationyear</td>
+                                <td>@Model.Fieldbookpage</td>
+                                <td>@Model.Goods</td>
+                                <td>@Model.Hair</td>
+                                <td>@Model.Headdirection</td>
+                                <td>@Model.Haircolor</td>
+                                <td>@Model.Length</td>
+                                <td>@Model.Photos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-light bg-light table-custom">
+                        <thead>
+                            <tr>
+                                <th scope="col">Preservation</th>
+                                <th scope="col">Samples Collected</th>
+                                <th scope="col">Sex</th>
+                                <th scope="col">Shaft Number</th>
+                                <th scope="col">South to Feet</th>
+                                <th scope="col">South to Head</th>
+                                <th scope="col">West to Feet</th>
+                                <th scope="col">West to Head</th>
+                                <th scope="col">Wrapping</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Preservation</td>
+                                <td>@Model.Samplescollected</td>
+                                <td>@Model.Sex</td>
+                                <td>@Model.Shaftnumber</td>
+                                <td>@Model.Southtofeet</td>
+                                <td>@Model.Southtohead</td>
+                                <td>@Model.Westtofeet</td>
+                                <td>@Model.Westtohead</td>
+                                <td>@Model.Wrapping</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
