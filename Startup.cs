@@ -30,7 +30,16 @@ namespace Egypt
         public void ConfigureServices(IServiceCollection services)
         {
 
+            var secretes = new ConfigurationBuilder()
+                .AddJsonFile("secrets.json", optional: true, reloadOnChange: true)
+                .Build();
+
             var connectionString = Environment.GetEnvironmentVariable("MyDbConnection");
+
+            if (connectionString == null)
+            {
+                connectionString = Configuration.GetConnectionString("MyDbConnection");
+            }
 
             services.AddDbContext<mummiesContext>(options =>
                 options.UseNpgsql(connectionString)
