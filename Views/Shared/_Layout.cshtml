@@ -32,6 +32,9 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <div>
+                <partial name="_CookiesPartial" />
+            </div>
             @RenderBody()
         </main>
     </div>
@@ -44,6 +47,25 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Check if the cookie indicating consent exists
+        if (!document.cookie.includes('cookieConsent=true')) {
+            // Show the cookie consent popup
+            document.querySelector('.cookie-consent-popup').style.display = 'block';
+        }
+        // Function to handle the "OK" button click
+        document.getElementById('cookie-consent-ok').addEventListener('click', function () {
+            // Set a cookie to indicate consent
+            var expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (15 * 60 * 1000)); // 15 minutes in milliseconds
+            // Set a cookie to indicate consent with 15-minute expiration
+            document.cookie = 'cookieConsent=true; expires=' + expirationDate.toUTCString() + '; path=/';
+            // Hide the cookie consent popup
+            document.querySelector('.cookie-consent-popup').style.display = 'none';
+        });
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
