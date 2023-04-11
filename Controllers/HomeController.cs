@@ -34,6 +34,36 @@ namespace Egypt.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult BurialEntry()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult BurialEntry(Burialmain bm)
+        {
+            return View("ConfirmationOfAdd", bm);
+        }
+        public IActionResult BurialRecords()
+        {
+            return View();
+        }
+
+        public IActionResult ConfirmationOfDelete()
+        {
+            return View();
+        }
+
+        public IActionResult SupervisedAnalysis()
+        {
+            return View();
+        }
+
+        public IActionResult UnsupervisedAnalysis()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

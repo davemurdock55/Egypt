@@ -31,7 +31,6 @@ namespace Egypt
 
             var connectionString = Environment.GetEnvironmentVariable("MyDbConnection");
 
-
             services.AddDbContext<mummiesContext>(options =>
                 options.UseNpgsql(connectionString)
                 );
