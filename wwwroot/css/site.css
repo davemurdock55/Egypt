@@ -89,7 +89,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 10vh; /* Set the height to one tenth of the viewport height */
+    height: 25vh; /* Set the height to one tenth of the viewport height */
     max-width: 400px; /* Limit the width of the popup */
     margin: 0 auto; /* Center the popup horizontally */
 }
