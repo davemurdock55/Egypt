@@ -24,9 +24,14 @@ namespace Egypt.Controllers
 
         public IActionResult Index()
         {
-            //var books = context.Books.OrderBy(x => x.Title).ToList();
-
             return View();
+        }
+
+        public IActionResult Burials()
+        {
+            var burialinfo = context.Burialmain.OrderBy(x => x.Id).ToList();
+
+            return View(burialinfo);
         }
 
         public IActionResult Privacy()
