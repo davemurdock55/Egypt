@@ -60,15 +60,6 @@ namespace Egypt.Controllers
         {
             return View("ConfirmationOfAdd", bm);
         }
-        public IActionResult BurialRecords()
-        {
-            return View();
-        }
-
-        public IActionResult ConfirmationOfDelete()
-        {
-            return View();
-        }
 
         public IActionResult SupervisedAnalysis()
         {
