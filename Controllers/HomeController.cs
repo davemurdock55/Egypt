@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Egypt.Data;
 
 namespace Egypt.Controllers
 {
@@ -15,11 +16,13 @@ namespace Egypt.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private mummiesContext context { get; set; }
+        private ApplicationDbContext identityContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger, mummiesContext temp_context)
+        public HomeController(ILogger<HomeController> logger, mummiesContext temp_context, ApplicationDbContext temp_id_context)
         {
             _logger = logger;
             context = temp_context;
+            identityContext = temp_id_context;
         }
 
         public IActionResult Index()
@@ -33,6 +36,14 @@ namespace Egypt.Controllers
 
             return View(burialinfo);
         }
+
+        public IActionResult Users()
+        {
+            var usersinfo = identityContext.Users.OrderBy(x => x.Id).ToList();
+
+            return View(usersinfo);
+        }
+
 
         public IActionResult Privacy()
         {
