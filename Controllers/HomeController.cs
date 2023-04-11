@@ -1,5 +1,6 @@
 ﻿using Egypt.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,18 @@ namespace Egypt.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private mummiesContext context { get; set; }
+
+        public HomeController(ILogger<HomeController> logger, mummiesContext temp_context)
         {
             _logger = logger;
+            context = temp_context;
         }
 
         public IActionResult Index()
         {
+            //var books = context.Books.OrderBy(x => x.Title).ToList();
+
             return View();
         }
 
