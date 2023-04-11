@@ -1,0 +1,31 @@
+﻿@{
+}
+
+@model List<Microsoft.AspNetCore.Identity.IdentityUser>
+
+<div class="container text-center">
+    <h1 class="display-4">Users</h1>
+    <p>A place for User Management</p>
+</div>
+
+<div class="custom-container">
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th>Email</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <th scope="row">@u.Id</th>
+                    <td>@u.Email</td>
+                    <td>@u.UserName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
