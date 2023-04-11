@@ -44,7 +44,6 @@ namespace Egypt.Controllers
             return View(usersinfo);
         }
 
-
         public IActionResult Privacy()
         {
             return View();
