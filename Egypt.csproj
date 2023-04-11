@@ -14,4 +14,8 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.18" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20230411055225_SeedingAdmin.Designer.cs" />
+    <Compile Remove="Migrations\20230411061153_SeedingUsersAndRoles.Designer.cs" />
+  </ItemGroup>
 </Project>

@@ -3,15 +3,17 @@ using System;
 using Egypt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Egypt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411055225_SeedingAdmin")]
+    partial class SeedingAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,15 +49,15 @@ namespace Egypt.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a2179ae4-2eb0-4bd5-b040-17ebf0019c30",
-                            ConcurrencyStamp = "efdd8169-1d4b-4459-a223-43f30ec2d9d4",
+                            Id = "1",
+                            ConcurrencyStamp = "43ef95d5-70ab-49f5-9a35-cfe7e2645822",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "3f2d6a2c-095f-496b-b76c-736d71e750cf",
-                            ConcurrencyStamp = "b19eff8e-32cf-4ab1-8860-75f14ce410ac",
+                            Id = "2",
+                            ConcurrencyStamp = "164a300e-36b0-4b71-901d-7717c41c7e51",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -151,17 +153,17 @@ namespace Egypt.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2a405505-a149-4534-b814-b2a44ed0b10d",
+                            Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e8357d28-849d-48e5-bb69-100841251cb3",
+                            ConcurrencyStamp = "cc343e17-9eb8-4452-bac3-4dc4ef508dd7",
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPVR7ZHT8pXt8fLLJHranIujfhxRFO5QPJXSaTvyLF7pcYs+ffkccqfnNKZrDGSvdQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENWWRxGOA38ltt57p4319FlZsoXqlIt79JagBotqAHKmr+OVSGFMKjtK9WigDru8YA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a27248b-1d17-49f2-aca4-b89e6c5c1a77",
+                            SecurityStamp = "5808b9ae-8039-4eed-97a2-ea47c5f1b4a3",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         });
@@ -228,13 +230,6 @@ namespace Egypt.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "2",
-                            RoleId = "1"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
