@@ -60,6 +60,13 @@ namespace Egypt.Controllers
             return View("ConfirmationOfAdd", bm);
         }
 
+        [HttpGet]
+        public IActionResult BurialDetails(long id)
+        {
+            Burialmain burialinfo = context.Burialmain.Where(b => b.Id == id).FirstOrDefault();
+            return PartialView("_BurialDetailsPartial", burialinfo);
+        }
+
         public IActionResult SupervisedAnalysis()
         {
             return View();
