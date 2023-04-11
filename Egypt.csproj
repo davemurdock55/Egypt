@@ -18,4 +18,15 @@
     <Compile Remove="Migrations\20230411055225_SeedingAdmin.Designer.cs" />
     <Compile Remove="Migrations\20230411061153_SeedingUsersAndRoles.Designer.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Home\BurialEntry.cshtml" />
+    <Content Remove="Views\Home\SupervisedAnalysis.cshtml" />
+    <Content Remove="Views\Home\ConfirmationOfDelete.cshtml" />
+    <Content Remove="Views\Home\UnsupervisedAnalysis.cshtml" />
+    <Content Remove="Views\Home\ConfirmationOfAdd.cshtml" />
+    <Content Remove="wwwroot\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
 </Project>
