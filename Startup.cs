@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,7 +31,6 @@ namespace Egypt
         {
 
             var connectionString = Environment.GetEnvironmentVariable("MyDbConnection");
-
 
             services.AddDbContext<mummiesContext>(options =>
                 options.UseNpgsql(connectionString)
