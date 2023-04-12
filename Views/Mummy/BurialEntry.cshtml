@@ -1,11 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Burial Entry Page";
+    ViewData["Title"] = "Burial Entry";
 }
 
 @model Egypt.Models.Burialmain
 
-<div class="container text-center">
-    <form method="post">
+<div>
+    
+    <form method="post" asp-action="BurialEntry">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
         <label asp-for="Squarenorthsouth">Square North South:</label>
         <input asp-for="Squarenorthsouth" /><br />
 
@@ -108,6 +112,6 @@
         <label asp-for="Shaftnumber">Shaft Number:</label>
         <input asp-for="Shaftnumber" /><br />
 
-        <button type="submit">Submit Your Application</button>
+        <button type="submit">Submit Your Entry</button>
     </form>
 </div>

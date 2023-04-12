@@ -19,6 +19,8 @@ namespace Egypt.Models
         {
         }
 
+        public DbSet<Burialmain> Entries { get; set; }
+
         public virtual DbSet<Analysis> Analysis { get; set; }
         public virtual DbSet<AnalysisTextile> AnalysisTextile { get; set; }
         public virtual DbSet<Artifactfagelgamousregister> Artifactfagelgamousregister { get; set; }
@@ -59,7 +61,6 @@ namespace Egypt.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("MyDbConnection"));
             }
         }

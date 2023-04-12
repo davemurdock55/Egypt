@@ -1,8 +1,8 @@
 ﻿@{
+    ViewData["Title"] = "Burials";
 }
 
 @model BurialsViewModel
-
 @*Table Title/Description (Based on Selected Table)*@
 <div class="container text-center">
     @if (ViewBag.SelectedTable == "BurialMain")
@@ -44,30 +44,30 @@
 
 @*The Table Filter buttons*@
 <div class="text-center mb-3">
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain"
-            class="btn @(ViewBag.SelectedTable == "BurialMain" ? "btn-primary" : "btn-outline-primary")">
-            Burial Main
-        </a>
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="BodyAnalysisChart"
-            class="btn @(ViewBag.SelectedTable == "BodyAnalysisChart" ? "btn-primary" : "btn-outline-primary")">
-            Body Analysis Chart
-        </a>
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="Textiles"
-            class="btn @(ViewBag.SelectedTable == "Textiles" ? "btn-primary" : "btn-outline-primary")">
-            Texitiles
-        </a>
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileStructures"
-            class="btn @(ViewBag.SelectedTable == "TextileStructures" ? "btn-primary" : "btn-outline-primary")">
-            Textile Structures
-        </a>
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileFunctions"
-            class="btn @(ViewBag.SelectedTable == "TextileFunctions" ? "btn-primary" : "btn-outline-primary")">
-            Textile Functions
-        </a>
-        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileColors"
-            class="btn @(ViewBag.SelectedTable == "TextileColors" ? "btn-primary" : "btn-outline-primary")">
-            Textile Colors
-        </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain"
+       class="btn @(ViewBag.SelectedTable == "BurialMain" ? "btn-primary" : "btn-outline-primary")">
+        Burial Main
+    </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="BodyAnalysisChart"
+       class="btn @(ViewBag.SelectedTable == "BodyAnalysisChart" ? "btn-primary" : "btn-outline-primary")">
+        Body Analysis Chart
+    </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="Textiles"
+       class="btn @(ViewBag.SelectedTable == "Textiles" ? "btn-primary" : "btn-outline-primary")">
+        Texitiles
+    </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileStructures"
+       class="btn @(ViewBag.SelectedTable == "TextileStructures" ? "btn-primary" : "btn-outline-primary")">
+        Textile Structures
+    </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileFunctions"
+       class="btn @(ViewBag.SelectedTable == "TextileFunctions" ? "btn-primary" : "btn-outline-primary")">
+        Textile Functions
+    </a>
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileColors"
+       class="btn @(ViewBag.SelectedTable == "TextileColors" ? "btn-primary" : "btn-outline-primary")">
+        Textile Colors
+    </a>
 </div>
 
 
@@ -266,44 +266,48 @@
 </div>
 
 
+
+<div>
+    <div class="text-center">
+        <a class="buttons button1" asp-controller="Mummy" asp-action="BurialEntry">Create a new entry!</a>
+    </div>
+</div>
+
+
 <div class="custom-container">
 
+    @*The Table partials*@
+    <div>
 
-
-
-
-        @*The Table partials*@
-        <div>
-
-            @if (ViewBag.SelectedTable == "BurialMain")
-            {
-                <partial name="_BurialMainTable" />
-            }
-            else if (ViewBag.SelectedTable == "BodyAnalysisChart")
-            {
-                <partial name="_BodyAnalysisChartTable" />
-            }
-            else if (ViewBag.SelectedTable == "Textiles")
-            {
-                <partial name="_TextileTable" />
-            }
-            else if (ViewBag.SelectedTable == "TextileStructures")
-            {
-                <partial name="_TextileStructureTable" />
-            }
-            else if (ViewBag.SelectedTable == "TextileFunctions")
-            {
-                <partial name="_TextileFunctionTable" />
-            }
-            else if (ViewBag.SelectedTable == "TextileColors")
-            {
-                <partial name="_ColorTable" />
-            }
-            else
-            {
-                <partial name="_BurialMainTable" />
-            }
-        </div>
+        @if (ViewBag.SelectedTable == "BurialMain")
+        {
+            <partial name="_BurialMainTable" />
+        }
+        else if (ViewBag.SelectedTable == "BodyAnalysisChart")
+        {
+            <partial name="_BodyAnalysisChartTable" />
+        }
+        else if (ViewBag.SelectedTable == "Textiles")
+        {
+            <partial name="_TextileTable" />
+        }
+        else if (ViewBag.SelectedTable == "TextileStructures")
+        {
+            <partial name="_TextileStructureTable" />
+        }
+        else if (ViewBag.SelectedTable == "TextileFunctions")
+        {
+            <partial name="_TextileFunctionTable" />
+        }
+        else if (ViewBag.SelectedTable == "TextileColors")
+        {
+            <partial name="_ColorTable" />
+        }
+        else
+        {
+            <partial name="_BurialMainTable" />
+        }
+    </div>
 
 
 </div>
