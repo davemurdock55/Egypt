@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using Tensorflow;
+using Newtonsoft.Json;
 
 namespace Egypt.Controllers
 {
@@ -203,7 +204,7 @@ namespace Egypt.Controllers
         {
             using (var client = new HttpClient())
             {
-                var uri = new Uri("https://localhost:44390/predict");
+                var uri = new Uri("https://localhost:44317/predict");
 
                 var json = JsonConvert.SerializeObject(data);
 
