@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Egypt.Data;
+using Egypt.Models.ViewModels;
 
 namespace Egypt.Controllers
 {
@@ -30,11 +31,25 @@ namespace Egypt.Controllers
             return View();
         }
 
-        public IActionResult Burials()
+        public IActionResult Burials(string table)
         {
-            var burialinfo = context.Burialmain.OrderBy(x => x.Id).ToList();
+            ViewBag.SelectedTable = table;
 
-            return View(burialinfo);
+
+            var viewModel = new BurialsViewModel
+            {
+                Burials = context.Burialmain.OrderBy(x => x.Id),
+                Bodyanalysischarts = context.Bodyanalysischart.OrderBy(x => x.Id),
+                Textiles = context.Textile.OrderBy(x => x.Id),
+                TextileStructures = context.Structure.OrderBy(x => x.Id),
+                TextileColors = context.Color.OrderBy(x => x.Id),
+                TextileFunctions = context.Textilefunction.OrderBy(x => x.Id),
+
+                // PageInfo = blah
+            };
+          
+
+            return View(viewModel);
         }
 
         public IActionResult Users()
