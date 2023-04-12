@@ -42,7 +42,36 @@
     }
 </div>
 
-<div class="container text-center mb-3">
+@*The Table Filter buttons*@
+<div class="text-center mb-3">
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain"
+            class="btn @(ViewBag.SelectedTable == "BurialMain" ? "btn-primary" : "btn-outline-primary")">
+            Burial Main
+        </a>
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="BodyAnalysisChart"
+            class="btn @(ViewBag.SelectedTable == "BodyAnalysisChart" ? "btn-primary" : "btn-outline-primary")">
+            Body Analysis Chart
+        </a>
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="Textiles"
+            class="btn @(ViewBag.SelectedTable == "Textiles" ? "btn-primary" : "btn-outline-primary")">
+            Texitiles
+        </a>
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileStructures"
+            class="btn @(ViewBag.SelectedTable == "TextileStructures" ? "btn-primary" : "btn-outline-primary")">
+            Textile Structures
+        </a>
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileFunctions"
+            class="btn @(ViewBag.SelectedTable == "TextileFunctions" ? "btn-primary" : "btn-outline-primary")">
+            Textile Functions
+        </a>
+        <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileColors"
+            class="btn @(ViewBag.SelectedTable == "TextileColors" ? "btn-primary" : "btn-outline-primary")">
+            Textile Colors
+        </a>
+</div>
+
+
+<div class="container text-center mb-5">
     <a class="btn btn-outline-secondary" data-toggle="collapse" href="#filters" role="button" aria-expanded="false" aria-controls="filters">
         Filter
     </a>
@@ -238,52 +267,13 @@
 
 
 <div class="custom-container">
-    <div class="row">
 
-        @*The Table Filter buttons*@
-        <div class="col-2">
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain"
-                   class="btn @(ViewBag.SelectedTable == "BurialMain" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Burial Main
-                </a>
-            </div>
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="BodyAnalysisChart"
-                   class="btn @(ViewBag.SelectedTable == "BodyAnalysisChart" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Body Analysis Chart
-                </a>
-            </div>
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="Textiles"
-                   class="btn @(ViewBag.SelectedTable == "Textiles" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Texitiles
-                </a>
-            </div>
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileStructures"
-                   class="btn @(ViewBag.SelectedTable == "TextileStructures" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Textile Structures
-                </a>
-            </div>
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileFunctions"
-                   class="btn @(ViewBag.SelectedTable == "TextileFunctions" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Textile Functions
-                </a>
-            </div>
-            <div class="mb-1">
-                <a asp-controller="Home" asp-action="Burials" asp-route-table="TextileColors"
-                   class="btn @(ViewBag.SelectedTable == "TextileColors" ? "btn-primary" : "btn-outline-primary") w-100">
-                    Textile Colors
-                </a>
-            </div>
-        </div>
+
 
 
 
         @*The Table partials*@
-        <div class="col-10">
+        <div>
 
             @if (ViewBag.SelectedTable == "BurialMain")
             {
@@ -315,5 +305,5 @@
             }
         </div>
 
-    </div>
+
 </div>
