@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model BurialsViewModel
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col">Burial Location</th>
+            <th scope="col">Depth</th>
+            <th scope="col">Length</th>
+            <th scope="col">Head Direction</th>
+            <th scope="col">Preservation</th>
+            <th scope="col">Wrapping</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Age at Death</th>
+            <th scope="col">Hair Color</th>
+            <th scope="col">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model.Burials)
+        {
+            <tr scope="row">
+                <td>@b.Squarenorthsouth @b.Northsouth @b.Squareeastwest @b.Eastwest @b.Area @b.Burialnumber</td>
+                <td>@b.Depth</td>
+                <td>@b.Length</td>
+                <td>@b.Headdirection</td>
+                <td>@b.Preservation</td>
+                <td>@b.Wrapping</td>
+                <td>@b.Sex</td>
+                <td>@b.Ageatdeath</td>
+                <td>@b.Haircolor</td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="@("#burialDetails-" + b.Id)" data-url="@Url.Action($"BurialDetails/{b.Id}")">
+                        See More
+                    </button>
+                    @await Html.PartialAsync("_BurialDetailsPartial", b)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

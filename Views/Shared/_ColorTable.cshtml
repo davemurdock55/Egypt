@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model BurialsViewModel
+
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Value</th>
+            <th scope="col">Color ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.TextileColors)
+        {
+            <tr scope="row">
+                <td>@c.Id</td>
+                <td>@c.Value</td>
+                <td>@c.Colorid</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" type="image/x-icon" href="~/img/favicon.png">
+    <style>
+        ::placeholder {
+            color: #ccc;
+        }
+        ::-webkit-input-placeholder {
+            color: #999; /* Lighter grey */
+        }
+
+        :-moz-placeholder {
+            color: #999;
+        }
+
+        ::-moz-placeholder {
+            color: #999;
+        }
+
+        :-ms-input-placeholder {
+            color: #999;
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -32,15 +53,14 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
                     </li>
-                </ul>
+				</ul>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
     <div>
         <main role="main" class="pb-3">
-            <div>
                 <partial name="_CookiesPartial" />
-            </div>
             @RenderBody()
         </main>
     </div>
