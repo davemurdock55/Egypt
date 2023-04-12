@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -59,6 +60,10 @@ namespace Egypt
                 options.Password.RequiredLength = 12;
                 options.Password.RequiredUniqueChars = 3;
             });
+
+            services.AddSingleton<InferenceSession>(
+              new InferenceSession("Models/model.onnx")
+            );
 
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -11,6 +11,10 @@ using Egypt.Data;
 using Egypt.Models.ViewModels;
 using Egypt.Models.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+using Tensorflow;
 
 namespace Egypt.Controllers
 {
@@ -192,6 +196,30 @@ namespace Egypt.Controllers
         public IActionResult SupervisedAnalysis()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SupervisedAnalysis(InputData data)
+        {
+            using (var client = new HttpClient())
+            {
+                var uri = new Uri("https://localhost:44390/predict");
+
+                var json = JsonConvert.SerializeObject(data);
+
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await client.PostAsync(uri, content);
+
+                var result = await response.Content.ReadAsStringAsync();
+
+                var prediction = JsonConvert.DeserializeObject<PredictionOutput>(result);
+
+                ViewBag.Prediction = prediction;
+
+                return View();
+
+            }
         }
 
         public IActionResult UnsupervisedAnalysis()

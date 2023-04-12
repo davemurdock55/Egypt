@@ -43,20 +43,22 @@ namespace Egypt.Controllers
                 return View(ar);
             }
         }
+
         [HttpGet]
         public IActionResult Edit(long deadid)
         {
 
             var entry = context.Entries.Single(x => x.Id == deadid);
 
-            return View("BurialEntry", entry);
+            return View("EditPage", entry);
         }
+
         [HttpPost]
         public IActionResult Edit(Burialmain mum)
         {
             context.Update(mum);
             context.SaveChanges();
-            return RedirectToAction("Burials");
+            return RedirectToAction("Burials", "Home");
         }
 
         [HttpGet]
