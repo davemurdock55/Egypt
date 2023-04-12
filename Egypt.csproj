@@ -7,10 +7,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.31" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.31" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.31" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.31" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.31" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.32">
@@ -33,6 +37,7 @@
     <Folder Include="Views\Shared\Components\FiltersViewComponents\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Models\Forms\" />
+    <Folder Include="Views\Mummy\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Components\" />
@@ -40,5 +45,6 @@
     <None Remove="Views\Shared\Components\FiltersViewComponents\" />
     <None Remove="Models\ViewModels\" />
     <None Remove="Models\Forms\" />
+    <None Remove="Views\Mummy\" />
   </ItemGroup>
 </Project>

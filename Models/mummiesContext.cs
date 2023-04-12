@@ -19,6 +19,8 @@ namespace Egypt.Models
         {
         }
 
+        public DbSet<Burialmain> Entries { get; set; }
+
         public virtual DbSet<Analysis> Analysis { get; set; }
         public virtual DbSet<AnalysisTextile> AnalysisTextile { get; set; }
         public virtual DbSet<Artifactfagelgamousregister> Artifactfagelgamousregister { get; set; }
