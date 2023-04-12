@@ -32,11 +32,13 @@
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\FiltersViewComponents\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Models\Forms\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Components\" />
     <None Remove="Views\Shared\Components\" />
     <None Remove="Views\Shared\Components\FiltersViewComponents\" />
     <None Remove="Models\ViewModels\" />
+    <None Remove="Models\Forms\" />
   </ItemGroup>
 </Project>
