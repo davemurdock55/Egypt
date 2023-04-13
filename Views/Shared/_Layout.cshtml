@@ -11,6 +11,7 @@
         ::placeholder {
             color: #ccc;
         }
+
         ::-webkit-input-placeholder {
             color: #999; /* Lighter grey */
         }
@@ -26,7 +27,6 @@
         :-ms-input-placeholder {
             color: #999;
         }
-
     </style>
 </head>
 <body>
@@ -53,14 +53,14 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
                     </li>
-				</ul>
+                </ul>
                 <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
     <div>
         <main role="main" class="pb-3">
-                <partial name="_CookiesPartial" />
+            <partial name="_CookiesPartial" />
             @RenderBody()
         </main>
     </div>
