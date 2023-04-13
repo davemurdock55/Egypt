@@ -11,7 +11,7 @@ using Egypt.Models.RoleModels;
 
 namespace INTEXll.Controllers
 {
-	[Authorize(Roles = "Admin")]
+	[Authorize]
 	public class UserRoleManagementController : Controller
 	{
 		private readonly UserManager<IdentityUser> userManager;

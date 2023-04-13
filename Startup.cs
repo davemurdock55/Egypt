@@ -31,7 +31,7 @@ namespace Egypt
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var secretes = new ConfigurationBuilder()
+            var secrets = new ConfigurationBuilder()
                 .AddJsonFile("secrets.json", optional: true, reloadOnChange: true)
                 .Build();
 
@@ -47,8 +47,12 @@ namespace Egypt
                 );
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(connectionString));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+				.AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
             {

@@ -1,13 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Supervised Analysis";
-}
-
-@{
     var prediction = ViewBag.Prediction as PredictionOutput;
 }
 
-<div class="container">
-    <h1 class="display-4">Supervised Analysis</h1>
+
+<div class="container mt-5">
+	<h1 class="display-4">Supervised Analysis</h1>
+    @if (prediction != null)
+	{
+		<div class="alert alert-success" role="alert">
+            <h4>Head Direction:</h4>
+			<p>The predicted value is @prediction.PredictedHeadDirection</p>
+		</div>
+	}
     <p>Enter details to make a prediction</p>
 
     <form method="post" asp-controller="Home" asp-action="SupervisedAnalysis" class="mb-3">
@@ -57,7 +62,7 @@
             <input type="number" class="form-control" id="WestToFeetInput" name="WestToFeetInput" placeholder="(10)">
         </div>
 
-        <div class="form-check text-center">
+        <div class="form-check text-center" size="50px;">
             <input class="form-check-input" type="checkbox" value="" id="WrappingInput">
             <label class="form-check-label" for="WrappingInput">
                 Wrapping
@@ -68,13 +73,5 @@
 		    <button type="submit" class="btn btn-primary">Predict</button>
 	    </div>
     </form>
-
-    @if (prediction != null)
-    {
-        <div class="alert alert-success" role="alert">
-            The predicted value is @prediction.PredictedHeadDirection
-        </div>
-    }
-
 
 </div>
