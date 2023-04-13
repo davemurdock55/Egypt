@@ -4,116 +4,197 @@
 
 @model Egypt.Models.Burialmain
 
-<div>
+<div class="container">
+    <div class="container pt-5">
+        <div class="row">
 
-    <form method="post" asp-action="Edit">
+            <div class="col-md-2"></div>
 
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-8">
+                <div class="card border-primary mb-3">
+                    <div class="card-header">Add a Burial</div>
+                    <div class="card-body p-3" style="padding: 0px 100px 10px 100px;">
+                        <form method="post" asp-action="Edit">
 
-        <input type="hidden" asp-for="Id" />
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-        <label asp-for="Squarenorthsouth">Square North South:</label>
-        <input asp-for="Squarenorthsouth" /><br />
+                            <input type="hidden" asp-for="Id" />
 
-        <label asp-for="Headdirection">Head Direction:</label>
-        <input asp-for="Headdirection" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Square North South:</label>
+                                <input type="text" asp-for="Squarenorthsouth" class="form-control" id="title" name="Squarenorthsouth">
+                            </div>
 
-        <label asp-for="Sex">Sex:</label>
-        <input asp-for="Sex" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Head Direction:</label>
+                                <input type="text" asp-for="Headdirection" class="form-control" id="title" name="Headdirection">
+                            </div>
 
-        <label asp-for="Northsouth">North South:</label>
-        <input asp-for="Northsouth" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Sex:</label>
+                                <input type="text" asp-for="Sex" class="form-control" id="title" name="Sex">
+                            </div>
 
-        <label asp-for="Depth">Depth:</label>
-        <input asp-for="Depth" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">North South:</label>
+                                <input type="text" asp-for="Northsouth" class="form-control" id="title" name="Northsouth">
+                            </div>
 
-        <label asp-for="Eastwest">East West:</label>
-        <input asp-for="Eastwest" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Depth:</label>
+                                <input type="text" asp-for="Depth" class="form-control" id="title" name="Depth">
+                            </div>
 
-        <label asp-for="Adultsubadult">Adult Subadult:</label>
-        <input asp-for="Adultsubadult" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">East West:</label>
+                                <input type="text" asp-for="Eastwest" class="form-control" id="title" name="Eastwest">
+                            </div>
 
-        <label asp-for="Facebundles">Face Bundles:</label>
-        <input asp-for="Facebundles" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Adult Subadult:</label>
+                                <input type="text" asp-for="Adultsubadult" class="form-control" id="title" name="Adultsubadult">
+                            </div>
 
-        <label asp-for="Southtohead">South To Head:</label>
-        <input asp-for="Southtohead" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Face Bundles:</label>
+                                <input type="text" asp-for="Facebundles" class="form-control" id="title" name="Facebundles">
+                            </div>
 
-        <label asp-for="Preservation">Preservation:</label>
-        <input asp-for="Preservation" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">South To Head:</label>
+                                <input type="text" asp-for="Southtohead" class="form-control" id="title" name="Southtohead">
+                            </div>
 
-        <label asp-for="Fieldbookpage">Field Bookpage:</label>
-        <input asp-for="Fieldbookpage" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Preservation:</label>
+                                <input type="text" asp-for="Preservation" class="form-control" id="title" name="Preservation">
+                            </div>
 
-        <label asp-for="Squareeastwest">Square East West:</label>
-        <input asp-for="Squareeastwest" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Field Bookpage:</label>
+                                <input type="text" asp-for="Fieldbookpage" class="form-control" id="title" name="Fieldbookpage">
+                            </div>
 
-        <label asp-for="Goods">Goods:</label>
-        <input asp-for="Goods" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Square East West:</label>
+                                <input type="text" asp-for="Squareeastwest" class="form-control" id="title" name="Squareeastwest">
+                            </div>
 
-        <label asp-for="Text">Text:</label>
-        <input asp-for="Text" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Goods:</label>
+                                <input type="text" asp-for="Goods" class="form-control" id="title" name="Goods">
+                            </div>
 
-        <label asp-for="Wrapping">Wrapping:</label>
-        <input asp-for="Wrapping" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Text:</label>
+                                <input type="text" asp-for="Text" class="form-control" id="title" name="Text">
+                            </div>
 
-        <label asp-for="Haircolor">Hair Color:</label>
-        <input asp-for="Haircolor" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Wrapping:</label>
+                                <input type="text" asp-for="Wrapping" class="form-control" id="title" name="Wrapping">
+                            </div>
 
-        <label asp-for="Westtohead">West To Head:</label>
-        <input asp-for="Westtohead" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Hair Color:</label>
+                                <input type="text" asp-for="Haircolor" class="form-control" id="title" name="Haircolor">
+                            </div>
 
-        <label asp-for="Samplescollected">Samples Collected:</label>
-        <input asp-for="Samplescollected" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">West To Head:</label>
+                                <input type="text" asp-for="Westtohead" class="form-control" id="title" name="Westtohead">
+                            </div>
 
-        <label asp-for="Area">Area:</label>
-        <input asp-for="Area" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Samples Collected:</label>
+                                <input type="text" asp-for="Samplescollected" class="form-control" id="title" name="Samplescollected">
+                            </div>
 
-        <label asp-for="Burialid">Burial ID:</label>
-        <input asp-for="Burialid" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Area:</label>
+                                <input type="text" asp-for="Area" class="form-control" id="title" name="Area">
+                            </div>
 
-        <label asp-for="Length">Length:</label>
-        <input asp-for="Length" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Burial ID:</label>
+                                <input type="number" asp-for="Burialid" class="form-control" id="title" name="Burialid">
+                            </div>
 
-        <label asp-for="Burialnumber">Burial Number:</label>
-        <input asp-for="Burialnumber" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Length:</label>
+                                <input type="text" asp-for="Length" class="form-control" id="title" name="Length">
+                            </div>
 
-        <label asp-for="Dataexpertinitials">Data Expert Initials:</label>
-        <input asp-for="Dataexpertinitials" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Burial Number:</label>
+                                <input type="text" asp-for="Burialnumber" class="form-control" id="title" name="Burialnumber">
+                            </div>
 
-        <label asp-for="Westtofeet">West To Feet:</label>
-        <input asp-for="Westtofeet" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Data Expert Initials:</label>
+                                <input type="text" asp-for="Dataexpertinitials" class="form-control" id="title" name="Dataexpertinitials">
+                            </div>
 
-        <label asp-for="Ageatdeath">Age At Death:</label>
-        <input asp-for="Ageatdeath" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">West To Feet:</label>
+                                <input type="text" asp-for="Westtofeet" class="form-control" id="title" name="Westtofeet">
+                            </div>
 
-        <label asp-for="Southtofeet">South To Feet:</label>
-        <input asp-for="Southtofeet" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Age At Death:</label>
+                                <input type="text" asp-for="Ageatdeath" class="form-control" id="title" name="Ageatdeath">
+                            </div>
 
-        <label asp-for="Excavationrecorder">Excavation Recorder:</label>
-        <input asp-for="Excavationrecorder" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">South To Feet:</label>
+                                <input type="text" asp-for="Southtofeet" class="form-control" id="title" name="Southtofeet">
+                            </div>
 
-        <label asp-for="Photos">Photos:</label>
-        <input asp-for="Photos" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Excavation Recorder:</label>
+                                <input type="text" asp-for="Excavationrecorder" class="form-control" id="title" name="Excavationrecorder">
+                            </div>
 
-        <label asp-for="Hair">Hair:</label>
-        <input asp-for="Hair" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Photos:</label>
+                                <input type="text" asp-for="Photos" class="form-control" id="title" name="Photos">
+                            </div>
 
-        <label asp-for="Burialmaterials">Burial Materials:</label>
-        <input asp-for="Burialmaterials" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Hair:</label>
+                                <input type="text" asp-for="Hair" class="form-control" id="title" name="Hair">
+                            </div>
 
-        <label asp-for="Dateofexcavation">Date Of Excavation:</label>
-        <input asp-for="Dateofexcavation" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Burial Materials:</label>
+                                <input type="text" asp-for="Burialmaterials" class="form-control" id="title" name="Burialmaterials">
+                            </div>
 
-        <label asp-for="Fieldbookexcavationyear">Field Book Excavation Year:</label>
-        <input asp-for="Fieldbookexcavationyear" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Date Of Excavation:</label>
+                                <input type="text" asp-for="Dateofexcavation" class="form-control" id="title" name="Dateofexcavation">
+                            </div>
 
-        <label asp-for="Clusternumber">Cluster Number:</label>
-        <input asp-for="Clusternumber" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Field Book Excavation Year:</label>
+                                <input type="text" asp-for="Fieldbookexcavationyear" class="form-control" id="title" name="Fieldbookexcavationyear">
+                            </div>
 
-        <label asp-for="Shaftnumber">Shaft Number:</label>
-        <input asp-for="Shaftnumber" /><br />
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Cluster Number:</label>
+                                <input type="text" asp-for="Clusternumber" class="form-control" id="title" name="Clusternumber">
+                            </div>
 
-        <button type="submit">Submit Your Entry</button>
-    </form>
+                            <div class="form-group">
+                                <label class="col-form-label mt-4" for="title">Shaft Number:</label>
+                                <input type="text" asp-for="Shaftnumber" class="form-control" id="title" name="Shaftnumber">
+                            </div>
+
+                            <button type="submit">Submit Edited Entry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
