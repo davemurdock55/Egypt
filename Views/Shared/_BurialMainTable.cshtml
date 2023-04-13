@@ -19,8 +19,11 @@
             <th scope="col">Age at Death</th>
             <th scope="col">Hair Color</th>
             <th scope="col">Details</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            @if (ViewBag.IsAuthenticated)
+            {
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -42,14 +45,16 @@
                     </button>
                     @await Html.PartialAsync("_BurialDetailsPartial", b)
                 </td>
-                <td><a class="btn btn-outline-secondary" asp-controller="Mummy" asp-action="Edit" asp-route-deadId="@b.Id">Edit</a></td>
-                <td><a class="btn btn-outline-danger" asp-controller="Mummy" asp-action="Delete" asp-route-deadId="@b.Id">Delete</a></td>
-
+                @if (ViewBag.IsAuthenticated)
+                {
+                    <td><a class="btn btn-outline-secondary" asp-controller="Mummy" asp-action="Edit" asp-route-deadId="@b.Id">Edit</a></td>
+                    <td><a class="btn btn-outline-danger" asp-controller="Mummy" asp-action="Delete" asp-route-deadId="@b.Id">Delete</a></td>
+                }
             </tr>
         }
     </tbody>
 </table>
 
 <div class="text-center">
-    <div page-model="" page-blah="@Model.PageInfo" page-action="Burials" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-class-enabled="true" class="btn-group m-1"></div>
+    <div page-model="" page-blah="@Model.PageInfo" page-action="Burials" page-class="btn" page-class-normal="btn-outline-secondary" page-class-selected="btn-primary" page-class-enabled="true" class="btn-group m-1"></div>
 </div>

@@ -1,77 +1,70 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Egypt</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Fag El-Gamous</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/egyptbootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" type="image/x-icon" href="~/img/favicon.png">
-    <style>
-        ::placeholder {
-            color: #ccc;
-        }
 
-        ::-webkit-input-placeholder {
-            color: #999; /* Lighter grey */
-        }
-
-        :-moz-placeholder {
-            color: #999;
-        }
-
-        ::-moz-placeholder {
-            color: #999;
-        }
-
-        :-ms-input-placeholder {
-            color: #999;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <a class="navbar-brand" href="#">Fag El-Gamous</a>
+    <header style="padding-bottom: 100px;">
+        <nav class="navbar fixed-top navbar-light text-white shadow-sm navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 p-3" style="background-color: rgba(242, 219, 172, 0.90); backdrop-filter: blur(5px);">
+            <a class="navbar-brand" href="#top">
+                <img src="~/img/favicon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Fag El-Gamous
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav flex-grow-1 h5 text-dark">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Burials">Burials</a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Burials">Burials</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SupervisedAnalysis">Supervised Analysis</a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="SupervisedAnalysis">Supervised Analysis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UnsupervisedAnalysis">Unsupervised Analysis</a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="UnsupervisedAnalysis">Unsupervised Analysis</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="UserRoleManagement" asp-action="Index">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="UserRoleManagement" asp-action="DisplayRoles">Roles</a>
-                    </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="UserRoleManagement" asp-action="Index">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="UserRoleManagement" asp-action="DisplayRoles">Roles</a>
+                        </li>
+                    }
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
-            <partial name="_CookiesPartial" />
-            @RenderBody()
+        <main role="main" class="pb-3 mt-5">
+            <div style="margin-top: 50px; min-height: 100vh;">
+                <partial name="_CookiesPartial" />
+                @RenderBody()
+            </div>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: rgba(242, 219, 172, 0.90); backdrop-filter: blur(5px);">
         <div class="container">
             &copy; 2023 - Egypt - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

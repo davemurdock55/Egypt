@@ -41,6 +41,7 @@ namespace Egypt.Controllers
         [HttpGet]
         public IActionResult Burials(string table, int pageNum = 1)
         {
+            ViewBag.IsAuthenticated = HttpContext.User.Identity.IsAuthenticated;
             ViewBag.SelectedTable = table;
             ViewBag.SelectedPage = pageNum;
 
@@ -101,6 +102,7 @@ namespace Egypt.Controllers
         [HttpPost]
         public IActionResult Burials(BurialMainFiltersForm bm, BodyAnalysisChartFiltersForm bac, TextileFiltersForm t, StructureFiltersForm s, FunctionFiltersForm f, ColorFiltersForm c, string table, int pageNum = 1)
         {
+            ViewBag.IsAuthenticated = HttpContext.User.Identity.IsAuthenticated;
             ViewBag.SelectedTable = table;
             ViewBag.SelectedPage = pageNum;
             int pageSize = 50;

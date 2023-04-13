@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h3 class="text-center">User: <b>@ViewBag.UserName</b></h3>
-<hr />
-
+<div class="container text-center mt-5" style="margin-top: 100px;">
+    <h3 class="text-center">User: <b>@ViewBag.UserName</b></h3>
+    <hr />
+</div>
 @await Html.PartialAsync("_TopMenuPartial")
 
 <div class="container">
