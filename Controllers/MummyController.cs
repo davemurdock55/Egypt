@@ -58,15 +58,16 @@ namespace Egypt.Controllers
         {
             context.Update(mum);
             context.SaveChanges();
-            return RedirectToAction("Burials", "Home");
+            return RedirectToAction("Burials", "Home", mum);
         }
 
         [HttpGet]
-        public IActionResult Delete(long deadid)
+        public IActionResult Delete(long id)
         {
-            var entry = context.Entries.Single(x => x.Id == deadid);
-            return View(entry);
+            Burialmain burialinfo = context.Burialmain.Where(b => b.Id == id).FirstOrDefault();
+            return PartialView("_DeletePartial", burialinfo);
         }
+
         [HttpPost]
         public IActionResult Delete(Burialmain ar)
         {

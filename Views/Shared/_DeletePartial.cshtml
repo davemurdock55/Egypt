@@ -1,0 +1,26 @@
+﻿@model Burialmain
+
+<!-- Modal -->
+<div class="modal fade" id="deleteBurial-@Model.Id" tabindex="-1" role="dialog" aria-labelledby="deleteBurialLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header text-center">
+                <h5 class="modal-title text-danger" id="deleteBurialLabel">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mt-3">
+                <p>Are you sure you want to delete burial @Model.Id?</p>
+
+            </div>
+            <div class="modal-footer">
+                <form method="post" asp-action="Delete" asp-controller="Mummy">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

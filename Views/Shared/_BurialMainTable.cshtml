@@ -48,7 +48,13 @@
                 @if (ViewBag.IsAuthenticated)
                 {
                     <td><a class="btn btn-outline-secondary" asp-controller="Mummy" asp-action="Edit" asp-route-deadId="@b.Id">Edit</a></td>
-                    <td><a class="btn btn-outline-danger" asp-controller="Mummy" asp-action="Delete" asp-route-deadId="@b.Id">Delete</a></td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="@("#deleteBurial-" + b.Id)" data-url="@Url.Action($"Delete/{b.Id}")">
+                            Delete
+                        </button>
+                        @await Html.PartialAsync("_DeletePartial", b)
+                        @*<a class="btn btn-outline-danger" asp-controller="Mummy" asp-action="Delete" asp-route-deadId="@b.Id">Delete</a>*@
+                        </td>
                 }
             </tr>
         }
