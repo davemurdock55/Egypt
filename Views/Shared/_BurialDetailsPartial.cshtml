@@ -21,8 +21,8 @@
                         </div>
                     </div>
 
-                    <table class="table-primary mb-3">
-                        <thead>
+                    <table class="table mb-3">
+                        <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">Age Range</th>
                                 <th scope="col">Age at Death</th>
@@ -35,7 +35,7 @@
                                 <th scope="col">Excavation Reorder</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-white text-black">
                             <tr>
                                 <td>@Model.Adultsubadult</td>
                                 <td>@Model.Ageatdeath</td>
@@ -49,8 +49,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table-primary mb-3">
-                        <thead>
+                    <table class="table mb-3">
+						<thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">Face Bundles</th>
                                 <th scope="col">Fieldbook Excavation Year</th>
@@ -63,7 +63,7 @@
                                 <th scope="col">Photos</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-white text-black">
                             <tr>
                                 <td>@Model.Facebundles</td>
                                 <td>@Model.Fieldbookexcavationyear</td>
@@ -77,8 +77,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table-primary mb-3">
-                        <thead>
+                    <table class="table mb-3">
+						<thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">Preservation</th>
                                 <th scope="col">Samples Collected</th>
@@ -91,7 +91,7 @@
                                 <th scope="col">Wrapping</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bg-white text-black">
                             <tr>
                                 <td>@Model.Preservation</td>
                                 <td>@Model.Samplescollected</td>
@@ -108,8 +108,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

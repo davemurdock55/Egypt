@@ -241,6 +241,13 @@ namespace Egypt.Controllers
             return PartialView("_BurialDetailsPartial", burialinfo);
         }
 
+        [HttpGet]
+        public IActionResult BodyAnalysisDetails(long id)
+        {
+            Bodyanalysischart bodyinfo = context.Bodyanalysischart.Where(b => b.Id == id).FirstOrDefault();
+            return PartialView("_BodyAnalysisPartial", bodyinfo);
+        }
+
         public IActionResult SupervisedAnalysis()
         {
             return View();

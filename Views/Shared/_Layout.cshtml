@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/egyptbootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="icon" type="image/x-icon" href="~/img/favicon.png">
-
-    </style>
 </head>
 <body>
     <header style="padding-bottom: 100px;">
@@ -38,18 +36,6 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="UnsupervisedAnalysis">Unsupervised Analysis</a>
                     </li>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Users">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="UserRoleManagement" asp-action="Index">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="UserRoleManagement" asp-action="DisplayRoles">Roles</a>
-                        </li>
-                    }
                 </ul>
                 <partial name="_LoginPartial" />
             </div>

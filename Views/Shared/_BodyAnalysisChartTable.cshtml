@@ -8,67 +8,36 @@
 
 <table class="table table-striped text-center">
     <thead>
-        <tr>
-            <th scope="col">Femur</th>
-            <th scope="col">Humerus Head Diameter</th>
-            <th scope="col">Squamos Suture</th>
-            <th scope="col">Caries Periodontal Disease</th>
-            <th scope="col">Medical Ip Ramus</th>
-            <th scope="col">Perservation Index</th>
-            <th scope="col">Gonion</th>
-            <th scope="col">Humerus length</th>
-            <th scope="col">Femur length</th>
-            <th scope="col">Lambdoid Suture</th>
-            <th scope="col">Ventral Arc</th>
-            <th scope="col">Tooth Eruption Age Estimation</th>
-            <th scope="col">Nuchal Crest</th>
-            <th scope="col">Estimate Stature</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Osteophytosis</th>
-            <th scope="col">Subpubic Angle</th>
-            <th scope="col">Robust</th>
-            <th scope="col">Femur Head Diameter</th>
-            <th scope="col">Sciatic Notch</th>
-            <th scope="col">Supraorbital Ridges</th>
-            <th scope="col">Orbit Edge</th>
-            <th scope="col">Tooth Attrition</th>
-            <th scope="col">Sphenooccipital Synchondrosis</th>
-            <th scope="col">Parietal Blossing</th>
-            <th scope="col">Observations</th>
-            <th scope="col">Humerus</th>
+		<tr>
+			<th scope="col">Humerus length</th>
+			<th scope="col">Femur length</th>
+			<th scope="col">Perservation Index</th>
+			<th scope="col">Osteophytosis</th>
+			<th scope="col">Nuchal Crest</th>
+			<th scope="col">Femur Head Diameter</th>
+			<th scope="col">Supraorbital Ridges</th>
+			<th scope="col">Orbit Edge</th>
+			<th scope="col">Details</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var b in Model.Bodyanalysischarts)
         {
             <tr scope="row">
-                <td>@b.Femur</td>
-                <td>@b.Humerusheaddiameter</td>
-                <td>@b.Squamossuture</td>
-                <td>@b.CariesPeriodontalDisease</td>
-                <td>@b.MedicalIpRamus</td>
-                <td>@b.Perservationindex</td>
-                <td>@b.Gonion</td>
                 <td>@b.Humeruslength</td>
                 <td>@b.Femurlength</td>
-                <td>@b.Lambdoidsuture</td>
-                <td>@b.Ventralarc</td>
-                <td>@b.Tootheruptionageestimation</td>
-                <td>@b.Nuchalcrest</td>
-                <td>@b.Estimatestature</td>
-                <td>@b.Notes</td>
+                <td>@b.Perservationindex</td>
                 <td>@b.Osteophytosis</td>
-                <td>@b.Subpubicangle</td>
-                <td>@b.Robust</td>
+                <td>@b.Nuchalcrest</td>
                 <td>@b.Femurheaddiameter</td>
-                <td>@b.Sciaticnotch</td>
                 <td>@b.Supraorbitalridges</td>
                 <td>@b.Orbitedge</td>
-                <td>@b.Toothattrition</td>
-                <td>@b.Sphenooccipitalsynchondrosis</td>
-                <td>@b.Parietalblossing</td>
-                <td>@b.Observations</td>
-                <td>@b.Humerus</td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="@("#bodyAnalysisDetails-" + b.Id)" data-url="@Url.Action($"BodyAnalysisDetails/{b.Id}")">
+                        See More
+                    </button>
+                    @await Html.PartialAsync("_BodyAnalysisPartial", b)
+                </td>
             </tr>
         }
     </tbody>

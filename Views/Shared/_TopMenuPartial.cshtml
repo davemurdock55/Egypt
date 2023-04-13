@@ -1,9 +1,12 @@
 ﻿<div class="row" style="margin-bottom:10px;">
-    <div class="col-8 offset-2">
-        <a asp-action="AddRole" asp-controller="UserRoleManagement" class="btn btn-primary mr-2">New Role</a>
-        <a asp-action="DisplayRoles" class="btn btn-success mr-2">View Roles</a>
-        <a asp-action="AddUserToRole" class="btn btn-info mr-2">Assign user to role</a>
-        <a asp-action="Index" asp-controller="UserRoleManagement" class="btn btn-primary">Go Back</a>
+    <div class="col-8 offset-2 text-center">
+        <a asp-action="AddRole" asp-controller="UserRoleManagement" class="btn btn-outline-success mr-2">New Role</a>
+        <a asp-action="DisplayRoles" class="btn btn-outline-primary mr-2">View Roles</a>
+        <a asp-action="AddUserToRole" class="btn btn-outline-info mr-2">Assign user to role</a>
+        @if (ViewData["Title"] != "Index")
+        {
+            <a asp-action="Index" asp-controller="UserRoleManagement" class="btn btn-outline-secondary">Go Back</a>
+        }
     </div>
 </div>
 <hr />

@@ -1,0 +1,116 @@
+﻿@model Bodyanalysischart
+
+<!-- Modal -->
+<div class="modal fade" id="bodyAnalysisDetails-@Model.Id" tabindex="-1" role="dialog" aria-labelledby="bodyAnalysisDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="min-width: 1000px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bodyAnalysisDetailsLabel">Burial Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="pb-4">Burial for @Model.Id</h5>                    
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col">
+                            <h5>Notes:</h5>
+                            <p>@Model.Notes</p>
+                        </div>
+                    </div>
+
+                    <table class="table mb-3">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Femur</th>
+                                <th scope="col">Humerus Head Diameter</th>
+                                <th scope="col">Squamos Suture</th>
+                                <th scope="col">Caries Periodontal Disease</th>
+                                <th scope="col">Medical Ip Ramus</th>
+                                <th scope="col">Perservation Index</th>
+                                <th scope="col">Gonion</th>
+                                <th scope="col">Humerus Length</th>
+                                <th scope="col">Femur Length</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-black">
+                            <tr>
+                                <td>@Model.Femur</td>
+                                <td>@Model.Humerusheaddiameter</td>
+                                <td>@Model.Squamossuture</td>
+                                <td>@Model.CariesPeriodontalDisease</td>
+                                <td>@Model.MedicalIpRamus</td>
+                                <td>@Model.Perservationindex</td>
+                                <td>@Model.Gonion</td>
+                                <td>@Model.Humeruslength</td>
+                                <td>@Model.Femurlength</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table mb-3">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Lambdoid Suture</th>
+                                <th scope="col">Ventral Arc</th>
+                                <th scope="col">Tooth Eruption Age Estimation</th>
+                                <th scope="col">Nuchal Crest</th>
+                                <th scope="col">Estimate Stature</th>
+                                <th scope="col">Osteophytosis</th>
+                                <th scope="col">Subpubic Angle</th>
+                                <th scope="col">Robust</th>
+                                <th scope="col">Femur Head Diameter</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-black">
+                            <tr>
+                                <td>@Model.Lambdoidsuture</td>
+                                <td>@Model.Ventralarc</td>
+                                <td>@Model.Tootheruptionageestimation</td>
+                                <td>@Model.Nuchalcrest</td>
+                                <td>@Model.Estimatestature</td>
+                                <td>@Model.Osteophytosis</td>
+                                <td>@Model.Subpubicangle</td>
+                                <td>@Model.Robust</td>
+                                <td>@Model.Femurheaddiameter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table mb-3">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Sciatic Notch</th>
+                                <th scope="col">Supraorbital Ridges</th>
+                                <th scope="col">Orbit Edge</th>
+                                <th scope="col">Tooth Attrition</th>
+                                <th scope="col">Sphenooccipital Synchondrosis</th>
+                                <th scope="col">Parietal Blossing</th>
+                                <th scope="col">Observations</th>
+                                <th scope="col">Humerus</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white text-black">
+                            <tr>
+                                <td>@Model.Sciaticnotch</td>
+                                <td>@Model.Supraorbitalridges</td>
+                                <td>@Model.Orbitedge</td>
+                                <td>@Model.Toothattrition</td>
+                                <td>@Model.Sphenooccipitalsynchondrosis</td>
+                                <td>@Model.Parietalblossing</td>
+                                <td>@Model.Observations</td>
+                                <td>@Model.Humerus</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

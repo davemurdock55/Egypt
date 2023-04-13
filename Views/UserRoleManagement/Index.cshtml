@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="container text-center mt-5" style="margin-top: 100px;">
-    <h3 class="text-center">User Role Management</h3>
+    <h3 class="text-center">User Management</h3>
     <hr />
 </div>
 
@@ -21,7 +21,7 @@
             else
             {
                 <table class="table">
-                    <thead class="bg-dark text-white">
+                    <thead class="bg-light text-dark">
                         <tr>
                             <th>UserName</th>
                             <th>Actions</th>
@@ -33,7 +33,7 @@
                             <tr>
                                 <td>@u.UserName</td>
                                 <td>
-                                    <a class="btn btn-success"
+                                    <a class="btn btn-outline-dark"
                                asp-route-userId="@u.Id"
                                asp-action="Details">View Details</a>
                                 </td>
