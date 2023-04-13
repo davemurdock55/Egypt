@@ -7,22 +7,26 @@
 @model BurialsViewModel
 
 
-    <table class="table table-striped text-center">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Value</th>
-                <th scope="col">Textile Function ID</th>
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Value</th>
+            <th scope="col">Textile Function ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model.TextileFunctions)
+        {
+            <tr scope="row">
+                <td>@f.Id</td>
+                <td>@f.Value</td>
+                <td>@f.Textilefunctionid</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var f in Model.TextileFunctions)
-            {
-                <tr scope="row">
-                    <td>@f.Id</td>
-                    <td>@f.Value</td>
-                    <td>@f.Textilefunctionid</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <div page-model="" page-blah="@Model.PageInfo" page-action="Burials" page-class="btn" page-class-normal="btn-outline-secondary" page-class-selected="btn-primary" page-class-enabled="true" class="btn-group m-1"></div>
+</div>
