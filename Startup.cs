@@ -93,9 +93,17 @@ namespace Egypt
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+				//endpoints.MapControllerRoute("id", "{controller}/{action}/{id?}", new { Controller = "Home", action = "MoreInfo" });
+				
+				endpoints.MapControllerRoute("typepage", "{controller}/{action}/{table}/page-{pageNum}", new { Controller = "Home", action = "Burial" });
+                endpoints.MapControllerRoute("typepage", "{controller}/{action}/{table}", new { Controller = "Home", action = "Burial" });
+                endpoints.MapControllerRoute("ellaid", "{controller}/{action}/{ellaid}", new { Controller = "Home", action = "MoreInfo" });
+                //endpoints.MapControllerRoute("Paging", "Page{pageNum}", new { controller = "Home", action = "Burials" });
+                endpoints.MapControllerRoute("type", "{controller}/{action}/{table}", new { Controller = "Home", action = "Burials", pageNum = 1 });
+                endpoints.MapDefaultControllerRoute();
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

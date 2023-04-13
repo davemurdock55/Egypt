@@ -39,33 +39,73 @@ namespace Egypt.Controllers
         }
 
         [HttpGet]
-        public IActionResult Burials(string table, string filter)
+        public IActionResult Burials(string table, int pageNum = 1)
         {
             ViewBag.SelectedTable = table;
-            //ViewBag.SelectedFilter = filter;
+            ViewBag.SelectedPage = pageNum;
+
+            int pageSize = 50;
+            int totalNumBurials;
+
+            if (table == "BurialMain")
+            {
+                totalNumBurials = context.Burialmain.Count();
+            }
+            else if (table == "BodyAnalysisChart")
+            {
+				totalNumBurials = context.Bodyanalysischart.Count();
+			}
+			else if (table == "Textiles")
+			{
+				totalNumBurials = context.Textile.Count();
+			}
+			else if (table == "TextileStructures")
+			{
+				totalNumBurials = context.StructureTextile.Count();
+			}
+			else if (table == "TextileFunctions")
+			{
+				totalNumBurials = context.Textilefunction.Count();
+			}
+			else if (table == "TextileColors")
+			{
+				totalNumBurials = context.Color.Count();
+			}
+			else
+            {
+				totalNumBurials = context.Burialmain.Count();
+			}
 
 
             var viewModel = new BurialsViewModel
             {
-                Burials = context.Burialmain.OrderBy(x => x.Id),
-                Bodyanalysischarts = context.Bodyanalysischart.OrderBy(x => x.Id),
-                Textiles = context.Textile.OrderBy(x => x.Id),
-                TextileStructures = context.Structure.OrderBy(x => x.Id),
-                TextileColors = context.Color.OrderBy(x => x.Id),
-                TextileFunctions = context.Textilefunction.OrderBy(x => x.Id),
+                Burials = context.Burialmain.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                Bodyanalysischarts = context.Bodyanalysischart.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                Textiles = context.Textile.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                TextileStructures = context.Structure.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                TextileColors = context.Color.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                TextileFunctions = context.Textilefunction.OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
 
-                // PageInfo = blah
+                PageInfo = new PageInfo
+                {
+					TotalNumBurials = totalNumBurials,
+					BurialsPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
             };
-          
 
-            return View(viewModel);
+
+			return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Burials(BurialMainFiltersForm bm, BodyAnalysisChartFiltersForm bac, TextileFiltersForm t, StructureFiltersForm s, FunctionFiltersForm f, ColorFiltersForm c, string table)
+        public IActionResult Burials(BurialMainFiltersForm bm, BodyAnalysisChartFiltersForm bac, TextileFiltersForm t, StructureFiltersForm s, FunctionFiltersForm f, ColorFiltersForm c, string table, int pageNum = 1)
         {
             ViewBag.SelectedTable = table;
-            IQueryable<dynamic> bigQuery = null;
+            ViewBag.SelectedPage = pageNum;
+            int pageSize = 50;
+
+			IQueryable<dynamic> bigQuery = null;
 
             switch (table)
             {
@@ -148,14 +188,20 @@ namespace Egypt.Controllers
 
             var viewModel = new BurialsViewModel
             {
-                Burials = bigQuery.OfType<Burialmain>().OrderBy(x => x.Id),
+                Burials = bigQuery.OfType<Burialmain>().OrderBy(x => x.Id).Skip((pageNum - 1) * pageSize).Take(pageSize),
                 Bodyanalysischarts = bigQuery.OfType<Bodyanalysischart>().OrderBy(x => x.Id),
                 Textiles = bigQuery.OfType<Textile>().OrderBy(x => x.Id),
                 TextileStructures = bigQuery.OfType<Structure>().OrderBy(x => x.Id),
                 TextileColors = bigQuery.OfType<Color>().OrderBy(x => x.Id),
                 TextileFunctions = bigQuery.OfType<Textilefunction>().OrderBy(x => x.Id),
 
-            };
+				PageInfo = new PageInfo
+				{
+					TotalNumBurials = context.Burialmain.Count(),
+					BurialsPerPage = pageSize,
+					CurrentPage = 1
+				}
+			};
 
             return View("Burials", viewModel);
         }
