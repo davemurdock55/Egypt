@@ -44,7 +44,7 @@
 
 @*The Table Filter buttons*@
 <div class="text-center mb-3">
-    <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain"
+    <a asp-controller="Home" asp-action="Burials" asp-route-table="BurialMain" asp-route-pageNum="1"
        class="btn @(ViewBag.SelectedTable == "BurialMain" ? "btn-primary" : "btn-outline-primary")">
         Burial Main
     </a>
@@ -76,6 +76,7 @@
         Filter
     </a>
 </div>
+
 <div id="filters" class="collapse">
 
     @if (ViewBag.SelectedTable == "BurialMain")

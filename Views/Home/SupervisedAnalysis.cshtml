@@ -1,3 +1,80 @@
 ﻿@{
-    ViewData["Title"] = "Supervised Analysis Page";
+    ViewData["Title"] = "Supervised Analysis";
 }
+
+@{
+    var prediction = ViewBag.Prediction as PredictionOutput;
+}
+
+<div class="container">
+    <h1 class="display-4">Supervised Analysis</h1>
+    <p>Enter details to make a prediction</p>
+
+    <form method="post" asp-controller="Home" asp-action="SupervisedAnalysis" class="mb-3">
+
+        <div class="form-group col">
+            <label for="SquareNorthSouthInput">North/South Square</label>
+            <input type="number" class="form-control" id="SquareNorthSouthInput" name="SquareNorthSouthInput" placeholder="(190)">
+        </div>
+
+        <div class="form-group col">
+            <label for="SquareEastWestInput">East/West Square</label>
+            <input type="number" class="form-control" id="SquareEastWestInput" name="SquareEastWestInput" placeholder="(30)">
+        </div>
+
+        <div class="form-group col">
+            <label for="DepthInput">Depth</label>
+            <input type="decimal" class="form-control" id="DepthInput" name="DepthInput" placeholder="(0.4)">
+        </div>
+
+        <div class="form-group col">
+            <label for="SouthToHeadInput">South to Head</label>
+            <input type="number" class="form-control" id="SouthToHeadInput" name="SouthToHeadInput" placeholder="(10)">
+        </div>
+
+        <div class="form-group col">
+            <label for="WestToHeadInput">West to Head</label>
+            <input type="number" class="form-control" id="WestToHeadInput" name="WestToHeadInput" placeholder="(10)">
+        </div>
+
+        <div class="form-group col">
+            <label for="LengthInput">Length</label>
+            <input type="number" class="form-control" id="LengthInput" name="LengthInput" placeholder="(8)">
+        </div>
+
+        <div class="form-group col">
+            <label for="BurialNumberInput">Burial Number</label>
+            <input type="number" class="form-control" id="BurialNumberInput" name="BurialNumberInput" placeholder="(60)">
+        </div>
+
+        <div class="form-group col">
+            <label for="SouthToFeetInput">South to Feet</label>
+            <input type="number" class="form-control" id="SouthToFeetInput" name="SouthToFeetInput" placeholder="(10)">
+        </div>
+
+        <div class="form-group col">
+            <label for="WestToFeetInput">West to Feet</label>
+            <input type="number" class="form-control" id="WestToFeetInput" name="WestToFeetInput" placeholder="(10)">
+        </div>
+
+        <div class="form-check text-center">
+            <input class="form-check-input" type="checkbox" value="" id="WrappingInput">
+            <label class="form-check-label" for="WrappingInput">
+                Wrapping
+            </label>
+        </div>
+
+        <div class="text-center">
+		    <button type="submit" class="btn btn-primary">Predict</button>
+	    </div>
+    </form>
+
+    @if (prediction != null)
+    {
+        <div class="alert alert-success" role="alert">
+            The predicted value is @prediction.PredictedHeadDirection
+        </div>
+    }
+
+
+</div>

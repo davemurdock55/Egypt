@@ -26,7 +26,7 @@ namespace Egypt.Models
                 SouthToFeetInput, WrappingInput
             };
 
-            int[] dimensions = new int[] { 1, 8 };
+            int[] dimensions = new int[] { 1, 10 };
 
             return new DenseTensor<float>(data, dimensions);
         }

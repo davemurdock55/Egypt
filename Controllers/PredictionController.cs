@@ -24,35 +24,14 @@ namespace aspnetcore.Controllers
         public ActionResult Predict(InputData data)
         {
 
-                //var tensor = new DenseTensor<float>(new[] { 1, data.Length });
-
-                ////tensor.CopyFrom(data);
-
-                //var inputs = new List<NamedOnnxValue> { NamedOnnxValue.CreateFromTensor("input", tensor) };
-                //var results = _session.Run(inputs);
-
-                //var output = results.First().AsTensor<string>();
-                //string predictedHeadDirection = output.GetValue(0);
-
-                //var prediction = new PredictionOutput { PredictedHeadDirection = predictedHeadDirection };
-
-                //return Ok(prediction);
-
-
-
             var result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
             });
 
-            Tensor<float> score = result.First().AsTensor<float>();
+            Tensor<string> score = result.First().AsTensor<string>();
 
             var prediction = new PredictionOutput { PredictedHeadDirection = score.First().ToString() };
-
-            // Assuming the output name is "predicted_head_direction"
-            //var output = predictionResult.Outputs["predicted_head_direction"];
-            //string predictedHeadDirection = output.AsEnumerable<string>().First();
-            //var prediction = new PredictionOutput { PredictedHeadDirection = predictedHeadDirection };
 
             result.Dispose();
 
