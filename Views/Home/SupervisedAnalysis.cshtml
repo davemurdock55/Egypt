@@ -5,73 +5,91 @@
 
 
 <div class="container mt-5">
-	<h1 class="display-4">Supervised Analysis</h1>
-    @if (prediction != null)
-	{
-		<div class="alert alert-success" role="alert">
-            <h4>Head Direction:</h4>
-			<p>The predicted value is @prediction.PredictedHeadDirection</p>
-		</div>
-	}
-    <p>Enter details to make a prediction</p>
+    <div class="text-center">
+	    <h1 class="display-4">Supervised Analysis</h1>
+        @if (prediction != null)
+	    {
+		    <div class="alert alert-success" role="alert">
+                <h4>Head Direction:</h4>
+			    <p>The predicted value is @prediction.PredictedHeadDirection</p>
+		    </div>
+	    }
+    </div>
 
-    <form method="post" asp-controller="Home" asp-action="SupervisedAnalysis" class="mb-3">
 
-        <div class="form-group col">
-            <label for="SquareNorthSouthInput">North/South Square</label>
-            <input type="number" class="form-control" id="SquareNorthSouthInput" name="SquareNorthSouthInput" placeholder="(190)">
+    <div class="row mt-3">
+
+        <div class="col"></div>
+
+        <div class="col-12 mb-5">
+            <div class="card border-primary mb-3">
+                <div class="card-header">Enter details to make a prediction</div>
+                <div class="card-body p-3" style="padding: 0px 100px 10px 100px;">
+
+                    <form method="post" asp-controller="Home" asp-action="SupervisedAnalysis" class="px-5">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group col">
+                            <label for="SquareNorthSouthInput">North/South Square</label>
+                            <input type="number" class="form-control" id="SquareNorthSouthInput" name="SquareNorthSouthInput" placeholder="(190)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="SquareEastWestInput">East/West Square</label>
+                            <input type="number" class="form-control" id="SquareEastWestInput" name="SquareEastWestInput" placeholder="(30)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="DepthInput">Depth</label>
+                            <input type="decimal" class="form-control" id="DepthInput" name="DepthInput" placeholder="(0.4)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="SouthToHeadInput">South to Head</label>
+                            <input type="number" class="form-control" id="SouthToHeadInput" name="SouthToHeadInput" placeholder="(10)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="WestToHeadInput">West to Head</label>
+                            <input type="number" class="form-control" id="WestToHeadInput" name="WestToHeadInput" placeholder="(10)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="LengthInput">Length</label>
+                            <input type="number" class="form-control" id="LengthInput" name="LengthInput" placeholder="(8)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="BurialNumberInput">Burial Number</label>
+                            <input type="number" class="form-control" id="BurialNumberInput" name="BurialNumberInput" placeholder="(60)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="SouthToFeetInput">South to Feet</label>
+                            <input type="number" class="form-control" id="SouthToFeetInput" name="SouthToFeetInput" placeholder="(10)">
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="WestToFeetInput">West to Feet</label>
+                            <input type="number" class="form-control" id="WestToFeetInput" name="WestToFeetInput" placeholder="(10)">
+                        </div>
+
+                        <div class="form-check text-center" size="50px;">
+                            <input class="form-check-input" type="checkbox" value="" id="WrappingInput">
+                            <label class="form-check-label" for="WrappingInput">
+                                Wrapping
+                            </label>
+                        </div>
+
+                        <div class="text-center mt-3">
+		                    <button type="submit" class="btn btn-primary">Predict</button>
+	                    </div>
+                    </form>
+                
+                </div>
+            </div>
         </div>
 
-        <div class="form-group col">
-            <label for="SquareEastWestInput">East/West Square</label>
-            <input type="number" class="form-control" id="SquareEastWestInput" name="SquareEastWestInput" placeholder="(30)">
-        </div>
-
-        <div class="form-group col">
-            <label for="DepthInput">Depth</label>
-            <input type="decimal" class="form-control" id="DepthInput" name="DepthInput" placeholder="(0.4)">
-        </div>
-
-        <div class="form-group col">
-            <label for="SouthToHeadInput">South to Head</label>
-            <input type="number" class="form-control" id="SouthToHeadInput" name="SouthToHeadInput" placeholder="(10)">
-        </div>
-
-        <div class="form-group col">
-            <label for="WestToHeadInput">West to Head</label>
-            <input type="number" class="form-control" id="WestToHeadInput" name="WestToHeadInput" placeholder="(10)">
-        </div>
-
-        <div class="form-group col">
-            <label for="LengthInput">Length</label>
-            <input type="number" class="form-control" id="LengthInput" name="LengthInput" placeholder="(8)">
-        </div>
-
-        <div class="form-group col">
-            <label for="BurialNumberInput">Burial Number</label>
-            <input type="number" class="form-control" id="BurialNumberInput" name="BurialNumberInput" placeholder="(60)">
-        </div>
-
-        <div class="form-group col">
-            <label for="SouthToFeetInput">South to Feet</label>
-            <input type="number" class="form-control" id="SouthToFeetInput" name="SouthToFeetInput" placeholder="(10)">
-        </div>
-
-        <div class="form-group col">
-            <label for="WestToFeetInput">West to Feet</label>
-            <input type="number" class="form-control" id="WestToFeetInput" name="WestToFeetInput" placeholder="(10)">
-        </div>
-
-        <div class="form-check text-center" size="50px;">
-            <input class="form-check-input" type="checkbox" value="" id="WrappingInput">
-            <label class="form-check-label" for="WrappingInput">
-                Wrapping
-            </label>
-        </div>
-
-        <div class="text-center">
-		    <button type="submit" class="btn btn-primary">Predict</button>
-	    </div>
-    </form>
-
+    </div>
 </div>
