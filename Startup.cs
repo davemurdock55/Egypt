@@ -95,6 +95,19 @@ namespace Egypt
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.Use(async (context, next) => {
+                context.Response.Headers.Add("Content-Security-Policy",
+                    "default-src 'self'; " +
+                    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.jquery.com https://cdn.jsdelivr.net; " +
+                    "style-src 'self' 'unsafe-inline'; " +
+                    "font-src 'self' data:; " +
+                    "img-src 'self' data:; " +
+                    "frame-src 'self'");
+
+                await next();
+            });
+
+
             app.UseEndpoints(endpoints =>
             {
 				//endpoints.MapControllerRoute("id", "{controller}/{action}/{id?}", new { Controller = "Home", action = "MoreInfo" });
