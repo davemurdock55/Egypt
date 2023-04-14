@@ -258,7 +258,7 @@ namespace Egypt.Controllers
         {
             using (var client = new HttpClient())
             {
-                var uri = new Uri("https://localhost:44317/predict");
+                var uri = new Uri("https://fagelgamous.lol/predict");
 
                 var json = JsonConvert.SerializeObject(data);
 
