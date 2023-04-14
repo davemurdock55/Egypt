@@ -37,18 +37,10 @@ namespace Egypt
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var secrets = new ConfigurationBuilder()
-                .AddJsonFile("secrets.json", optional: true, reloadOnChange: true)
-                .Build();
+			var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            var connectionString = Environment.GetEnvironmentVariable("MyDbConnection");
 
-            if (connectionString == null)
-            {
-                connectionString = Configuration.GetConnectionString("MyDbConnection");
-            }
-
-            services.Configure<CookiePolicyOptions>(options =>
+			services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential 
                 // cookies is needed for a given request.
@@ -86,6 +78,15 @@ namespace Egypt
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(60);
+                options.ExcludedHosts.Add("example.com");
+                options.ExcludedHosts.Add("www.example.com");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
