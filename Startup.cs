@@ -14,6 +14,7 @@ using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,9 +22,13 @@ namespace Egypt
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -76,7 +81,7 @@ namespace Egypt
             });
 
             services.AddSingleton<InferenceSession>(
-              new InferenceSession("Models/model.onnx")
+              new InferenceSession(Path.Combine(_env.ContentRootPath, "wwwroot", "model.onnx"))
             );
 
             services.AddControllersWithViews();
